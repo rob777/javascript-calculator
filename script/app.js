@@ -1,4 +1,4 @@
-var round = function (text, pos) {
+var round = function(text, pos) {
     function setCharAt(str, index, chr) {
         if (index > str.length - 1) return str;
         return str.substr(0, index) + chr + str.substr(index + 1);
@@ -18,8 +18,8 @@ var round = function (text, pos) {
     return text;
 };
 var $ = jQuery.noConflict();
-$(function () {
-    var testNumLength = function (number) {
+$(function() {
+    var testNumLength = function(number) {
         if (number.length > 9) {
             totaldiv.text(number.substr(number.length - 9, 9));
             if (number.length > 15) {
@@ -33,25 +33,25 @@ $(function () {
     var operator = "";
     var totaldiv = $("#total");
     totaldiv.text("0");
-    $("#numbers > a").not("#clearall").click(function () {
+    $("#numbers > a").not("#clearall").click(function() {
         number += $(this).text();
         totaldiv.text(number);
         testNumLength(number);
     });
-    $("#operators > a").not("#equals").click(function () {
+    $("#operators > a").not("#equals").click(function() {
         operator = $(this).text();
         newnumber = number;
         number = "";
         totaldiv.text("0");
     });
-    $("#clearall").click(function () {
+    $("#clearall").click(function() {
         number = "";
         totaldiv.text("0");
         if ($(this).attr("id") === "clearall") {
             newnumber = "";
         }
     });
-    $("#equals").click(function (a, b) {
+    $("#equals").click(function(a, b) {
         a = +newnumber;
         b = +number;
         if (operator === "+") {
@@ -68,7 +68,7 @@ $(function () {
         number = "";
         newnumber = "";
     });
-    $(document).keypress(function (event) {
+    $(document).keypress(function(event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode === 49) {
             $("#one").click();
